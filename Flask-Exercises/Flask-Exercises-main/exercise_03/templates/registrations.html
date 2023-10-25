@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1 class="mb-4">Registered Users</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Organization</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for name, organization in registered_users.items() %}
+        <tr>
+            <td>{{ name }}</td>
+            <td>{{ organization }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('home') }}" class="btn btn-primary">Back to Registration</a>
+{% endblock %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+    <!--Bootstrap implementation-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <p><strong class="times-new-roman">The current day and time is <span id="current-time"></span></strong></p>
+    </div>
+
+    <script>
+        function updateCurrentTime() {
+            const currentTimeElement = document.getElementById('current-time');
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric'
+            };
+            const currentDateTime = new Date().toLocaleDateString('en-US', options);
+            currentTimeElement.textContent = currentDateTime;
+        }
+
+        updateCurrentTime(); //updates after reloading the page
+
+        setInterval(updateCurrentTime, 1000); //updates every second
+    </script>
+</body>
+</html>
